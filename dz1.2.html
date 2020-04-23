@@ -1,0 +1,32 @@
+<!-- Запросите у пользователя год его рождения, посчитайте,
+сколько ему лет и выведите результат. Текущий год укажите
+в коде как константу. -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz1.2</title>
+
+</head>
+<body>
+    <script>
+
+        let now = new Date(); //Текущя дата
+        let today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени
+        let dob = new Date(prompt("Укажите день рождения в такой форме ГГ, ММ, ДД")); //Дата рождения
+        let dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году
+        let age; //Возраст
+
+        //Возраст = текущий год - год рождения
+        age = today.getFullYear() - dob.getFullYear();
+        //Если ДР в этом году ещё предстоит, то вычитаем из age один год
+        if (today < dobnow) {
+        age = age-1;
+        }
+
+        alert(`Возраст: ${age}`);
+
+    </script>
+</body>
+</html>
